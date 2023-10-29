@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--Stiliziranje na domasna #1 so eksteren .css file --> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca2 </title>
+</head>
+<body>
+    <form>
+
+     <table border="1" id="Table">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <strong> Pizza Shop 2.0 </strong>
+                </th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name"></td>
+            </tr>
+            <tr>
+                <td>Pizza Topping</td>
+                <td> 
+                    <input type="radio" id="Supreme" name="Pizza" value="Supreme"/>
+                    <label for="Supreme">Supreme</label>
+                
+                  <div>
+                    <input type="radio" id="Vegetarian" name="Pizza" value="Vegetarian" />
+                    <label for="Vegetarian">Vegetarian</label>
+                  </div>
+                
+                  <div>
+                    <input type="radio" id="Hawaiian" name="Pizza" value="Hawaiian" />
+                    <label for="Hawaiian">Hawaiian</label>
+                  </div>
+                </td>
+            </tr>
+
+            <tr aria-rowspan="3">
+                <td>Pizza Sauce</td>
+                <td colspan="1">
+                    <select name="Select" id="Select">
+                    <option value="1">Tomato</option>
+                    <option value="2">Pesto</option>
+                    <option value="3">Alfredo</option>
+                  </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Optional Extras</td>
+                <td>
+                    <input type="checkbox" name="izbor1" value="Yes">Extra Cheese
+                    <input type="checkbox" name="izbor2" value="Yes">Gluten Free Base
+                </td>
+            </tr>
+
+            <tr> 
+                <td colspan="2">
+                    Delivery instructions:
+                    <div>
+                        <textarea name="Komentar" id="Komentar" cols="50" rows="5"></textarea>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <td colspan="2">
+                <input type="submit" value="Send my order">
+            </td>
+        </tfoot>
+     </table>
+    </form>
+</body>
+</html>
