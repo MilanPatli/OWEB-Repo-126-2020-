@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pogodi go zborot</title>
+  <style>
+    body {
+      font-family:'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 800px;
+    }
+    #word-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .letter {
+      border-bottom: 2px solid #333;
+      margin: 0 5px;
+      padding: 5px;
+      text-align: center;
+      width: 30px;
+    }
+    body{
+    padding: 0px;
+    background-image: url(grad.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .BOX{
+      background-color: rgba(177, 190, 183, 0.37);
+      text-indent: 15px;
+      height: 250px;
+      width: 650px;
+      border-style: solid;
+      border-color:rgba(96, 136, 115, 0.82);
+      border-radius: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class = "BOX">
+    <h1>Pogodi go zborot</h1>
+    <div id="word-container"></div>
+    <p>Preostanati sansi: <span id="chances">5</span></p>
+    <label for="guess">Vasiot odgovor:</label>
+    <input type="text" id="guess" maxlength="8">
+    <button onclick="checkGuess()">Zakluci go odgovorot</button>
+  <button onclick="startNewGame()">Pocni nova igra</button>
+</div>
+
+<script>
+  let randomWord = "";
+  let visibleLetters = [];
+  let chancesLeft = 5;
+  alert("Имаш 5 шанси да го погодиш зборот, пишувајш само со мали букви. \n СО СРЕЌА :)");
+
+  function startNewGame() {
+    // Reset variables
+    randomWord = getRandomWord();
+    visibleLetters = getVisibleLetters(randomWord);
+    chancesLeft = 5;
+
+    // Update UI
+    updateWordUI();
+    updateChancesUI();
+  }
+
+  function getRandomWord() {
+    const words = ['vaga','corap','dab','madagaskar', 'bucava', 'papagal','lebed','tikvicki','tastatura','teleskop','lazica'];
+    return words[Math.floor(Math.random() * words.length)];
+  }
+
+  function getVisibleLetters(word) {
+    const wordLength = word.length;
+    const visibleIndices = [];
+
+    if (Math.floor(wordLength/2) < 3){
+    numberOfKnown = Math.floor(wordLength/2);
+    } else {
+    numberOfKnown = 3;
+    }
+
+    while (visibleIndices.length < numberOfKnown) {
+      const randomIndex = Math.floor(Math.random() * wordLength);
+
+      if (!visibleIndices.includes(randomIndex)) {
+        visibleIndices.push(randomIndex);
+      }
+    }
+
+    return word.split('').map((letter, index) => visibleIndices.includes(index) ? letter : null);
+  }
+
+  function updateWordUI() {
+    const wordContainer = document.getElementById("word-container");
+    wordContainer.innerHTML = "";
+
+    visibleLetters.forEach(letter => {
+      const letterElement = document.createElement("div");
+      letterElement.className = "letter";
+      letterElement.textContent = letter !== null ? letter : "";
+      wordContainer.appendChild(letterElement);
+    });
+  }
+
+  function updateChancesUI() {
+    const chancesElement = document.getElementById("chances");
+    chancesElement.textContent = chancesLeft;
+  }
+
+  function checkGuess() {
+    const guessInput = document.getElementById("guess");
+    const guessedWord = guessInput.value.toLowerCase();
+
+    if (guessedWord === randomWord) {
+      alert("Браво батка, го погоди зборчето");
+      startNewGame();
+    } else {
+      chancesLeft--;
+
+      if (chancesLeft === 0) {
+        alert(`Батка нема да те чекам до утре да гаѓаш, \n Зборчето беше "${randomWord}".`);
+        startNewGame();
+      } else {
+        updateChancesUI();
+      }
+    }
+
+    
+    guessInput.value = "";
+  }
+
+  startNewGame();
+</script>
+
+</body>
+</html>

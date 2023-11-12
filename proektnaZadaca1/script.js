@@ -7,6 +7,6 @@ document.getElementById("button2").addEventListener("click", function () {
 });
 
 document.getElementById("button3").addEventListener("click", function () {
-    window.location.href = "contactsPage.html"; // Navigate to the new HTML file
+    window.location.href = "reviewsPage.html"; // Navigate to the new HTML file
  });
- 
+    
