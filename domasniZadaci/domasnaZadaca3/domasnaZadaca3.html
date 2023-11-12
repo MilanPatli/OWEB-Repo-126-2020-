@@ -61,12 +61,12 @@
   alert("Имаш 5 шанси да го погодиш зборот, пишувајш само со мали букви. \n СО СРЕЌА :)");
 
   function startNewGame() {
-    // Reset variables
+    
     randomWord = getRandomWord();
     visibleLetters = getVisibleLetters(randomWord);
     chancesLeft = 5;
 
-    // Update UI
+    
     updateWordUI();
     updateChancesUI();
   }
@@ -78,7 +78,7 @@
 
   function getVisibleLetters(word) {
     const wordLength = word.length;
-    const visibleIndices = [];
+    const visibleIndex = [];
 
     if (Math.floor(wordLength/2) < 3){
     numberOfKnown = Math.floor(wordLength/2);
@@ -86,15 +86,15 @@
     numberOfKnown = 3;
     }
 
-    while (visibleIndices.length < numberOfKnown) {
+    while (visibleIndex.length < numberOfKnown) {
       const randomIndex = Math.floor(Math.random() * wordLength);
 
-      if (!visibleIndices.includes(randomIndex)) {
-        visibleIndices.push(randomIndex);
+      if (!visibleIndex.includes(randomIndex)) {
+        visibleIndex.push(randomIndex);
       }
     }
 
-    return word.split('').map((letter, index) => visibleIndices.includes(index) ? letter : null);
+    return word.split('').map((letter, index) => visibleIndex.includes(index) ? letter : null);
   }
 
   function updateWordUI() {
