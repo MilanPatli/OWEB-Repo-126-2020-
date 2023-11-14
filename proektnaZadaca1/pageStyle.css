@@ -55,6 +55,8 @@ footer{
 .MENI img{
     margin-bottom: 10px;
     border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
 }
 
 
@@ -69,4 +71,8 @@ footer{
 .subHEAD p{
     font-size: 150%;
     font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+.selected {
+    border: 2px solid rgba(0, 0, 255, 0.5);
 }
