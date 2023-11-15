@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-        /* Include CSS styles for layout and design */
-        /* This is a basic example, you can style it as needed */
-     #gallery {
-       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-     }
-     .photo {
-       width: 200px;
-      height: auto;
-      object-fit: cover;
-    }
-</style>
 <head>
     <link rel="stylesheet" href="pageStyle.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>CONTACTS</title>
  <style>
-    /* Include CSS styles for layout and design */
-    /* This is a basic example, you can style it as needed */
+
     #gallery {
       display: flex;
       flex-wrap:wrap;
@@ -40,7 +25,7 @@
         <button id="button2">HOME</button>
         <button id="button3">REVIEWS</button>
     </div>
-    <h1>Photo Gallery</h1>
+    <h1>Our Reviews</h1>
 
     <!-- Form for uploading photos -->
     <input type="file" id="photoInput" accept="image/*" multiple>
@@ -95,8 +80,34 @@
       }
     </script>
   </body>
-<footer>
-    <p> Problem</p>
+
+
+
+  <footer id="footer" class="footer">
+
+    <div id="about" class="footerBox">
+        <p class="footerTitles">About Us</p>
+        <p class = "footerText">The best food for the "best" price </p>
+      </div>
+
+<div id="visitUs" class="footerBox">
+  <p class="footerTitles">Visit Us</p>
+    <p class = "footerText">Located <a href="https://www.google.com/maps/place/%D0%A4%D0%B0%D0%BA%D1%83%D0%BB%D1%82%D0%B5%D1%82+%D0%B7%D0%B0+%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0+%D0%B8+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%81%D0%BA%D0%B8+%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8+(%D0%A4%D0%95%D0%98%D0%A2)/@42.0049819,21.4083132,15z/data=!4m6!3m5!1s0x1354144347c06cb9:0x8176c642ff09aed6!8m2!3d42.0049819!4d21.4083132!16s%2Fg%2F1tg970jx?entry=ttu" target="_blank">here</a> </p>
+</div>
+
+<div id="clientCare" class="footerBox">
+  <p class="footerTitles">Follow Us at</p>
+  <div class="icons">
+    <img src="photos/instagram.png">
+    <p class = "footerText"><a href="https://www.Instagram.com"target="_blank">Instagram</a></p>
+  </div>
+
+  <div class="icons">
+    <img src="photos/facebook.png">
+    <p class = "footerText"> <a href="https://www.Facebook.com"target="_blank">Facebook</a></p>
+  </div>
+</div>
 </footer>
+
 <script src="script.js"></script>
 </html>
