@@ -79,34 +79,42 @@ function uploadPhotos() {
         reviewInput.id = "autoresizing"
         reviewInput.placeholder = 'Leave a review';
         container.appendChild(reviewInput);
+//
+        const timestamp = document.createElement('span');
+        timestamp.classList.add('timestamp');
+        container.appendChild(timestamp);
 
+        reviewInput.addEventListener('input', function () {
+            timestamp.textContent = getTimeStamp();
+        });
+        //
         gallery.appendChild(container);
       };
       reader.readAsDataURL(file);
     }
   }
 
-  
-function submitReview(event) {
-    const review = event.target.previousElementSibling.value;
-
-    const reviewElement = document.createElement('p');
-    reviewElement.textContent = review;
-    timestamp.classList.add('timestamp');
-
-    const reviewDiv = document.createElement('div');
-    reviewDiv.appendChild(reviewElement);
-    reviewDiv.appendChild(timestamp);
-
-    event.target.parentNode.appendChild(reviewDiv);
-  }
-  
   function getTimeStamp() {
     const now = new Date();
     const date = now.toLocaleDateString();
     const time = now.toLocaleTimeString();
     return `${date} ${time}`;
 }
+  
+  function submitReview(event) {
+    const review = event.target.previousElementSibling.value;
+
+    const reviewElement = document.createElement('p');
+    reviewElement.textContent = review;
+
+
+    const reviewDiv = document.createElement('div');
+    reviewDiv.appendChild(reviewElement);
+
+    event.target.parentNode.appendChild(reviewDiv);
+}
+
+
   textarea = document.querySelector("#autoresizing");
   textarea.addEventListener('input', autoResize, false);
   
