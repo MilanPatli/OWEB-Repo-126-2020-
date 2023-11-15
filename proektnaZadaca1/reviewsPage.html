@@ -4,18 +4,21 @@
     <link rel="stylesheet" href="pageStyle.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>CONTACTS</title>
+ <title>REVIEWS</title>
  <style>
-
     #gallery {
       display: flex;
       flex-wrap:wrap;
       gap: 10px;
     }
     .photo {
-      width: 200px;
+      width: auto;
       height: auto;
       object-fit: cover;
+      border-radius: 10%;
+    }
+    h1{
+      font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     }
   </style>
 </head>
@@ -25,62 +28,21 @@
         <button id="button2">HOME</button>
         <button id="button3">REVIEWS</button>
     </div>
-    <h1>Our Reviews</h1>
+    <div class="HEAD">
+      <p>Our Reviews</p>
+    </div>
+    
 
-    <!-- Form for uploading photos -->
+    
     <input type="file" id="photoInput" accept="image/*" multiple>
     <button onclick="uploadPhotos()">Upload</button>
   
-    <!-- Display uploaded photos -->
-    <div id="gallery"></div>
-  
-    <script>
-      // Function to display selected photos in the gallery above existing ones
-      function uploadPhotos() {
-        const input = document.getElementById('photoInput');
-        const gallery = document.getElementById('gallery');
-  
-        for (const file of input.files) {
-          const reader = new FileReader();
-  
-          reader.onload = function(event) {
-            const img = document.createElement('img');
-            img.src = event.target.result;
-            img.classList.add('photo');
-  
-            // Create a container div for the image and its associated review
-            const container = document.createElement('div');
-            container.appendChild(img);
-  
-            const reviewInput = document.createElement('textarea');
-            reviewInput.placeholder = 'Leave a review';
-            container.appendChild(reviewInput);
-  
-            // Append the container to the gallery
-            gallery.appendChild(container);
-          };
-  
-          reader.readAsDataURL(file);
-        }
-      }
-  
-      // Function to submit a review associated with the corresponding image
-      function submitReview(event) {
-        const review = event.target.previousElementSibling.value;
-  
-        const reviewElement = document.createElement('p');
-        reviewElement.textContent = review;
-  
-        // Create a new div for each review to separate them
-        const reviewDiv = document.createElement('div');
-        reviewDiv.appendChild(reviewElement);
-  
-        // Append the review under the respective image
-        event.target.parentNode.appendChild(reviewDiv);
-      }
-    </script>
-  </body>
+    
+    <div id="gallery">
 
+    </div>
+
+  </body>
 
 
   <footer id="footer" class="footer">
